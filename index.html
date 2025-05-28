@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Ideas para Redes Sociales de GL Dental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8; /* Gris claro suave */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinea al inicio verticalmente */
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        h1 {
+            color: #2c3e50; /* Azul oscuro */
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box; /* Incluye padding en el ancho */
+        }
+
+        button {
+            background-color: #2ecc71; /* Verde esmeralda (como un toque de verde oliva vibrante) */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Verde más oscuro al pasar el ratón */
+        }
+
+        .results-section {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .idea-card {
+            background-color: #ecf0f1; /* Gris claro */
+            border: 1px solid #dcdfe4;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .idea-card h3 {
+            color: #34495e; /* Azul grisáceo */
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.15em;
+        }
+
+        .idea-card p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .idea-card .visual-suggestion {
+            font-style: italic;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Ideas para Redes Sociales de GL Dental</h1>
+        <div class="input-section">
+            <input type="text" id="topicInput" placeholder="Ej: Blanqueamiento, Implantes, Ortodoncia">
+            <button id="generateBtn">Generar Ideas</button>
+        </div>
+        <div class="results-section" id="resultsArea">
+            </div>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', generateIdeas);
+
+        function generateIdeas() {
+            const topic = document.getElementById('topicInput').value.toLowerCase().trim();
+            const resultsArea = document.getElementById('resultsArea');
+            resultsArea.innerHTML = ''; // Limpiar resultados anteriores
+
+            const ideas = {
+                "blanqueamiento": [
+                    {
+                        title: "Mito vs. Realidad del Blanqueamiento",
+                        text: "¡Desmiente mitos comunes sobre el blanqueamiento dental y explica cómo funciona realmente en GL Dental! Pregunta a tus seguidores: '¿Qué es lo más sorprendente que has oído sobre blanquear tus dientes?'",
+                        visual: "Infografía simple de 'Mito ❌ vs. Realidad ✅'. Fotos de dientes antes/después (si tienes consentimiento)."
+                    },
+                    {
+                        title: "¿Quién es candidato para un Blanqueamiento?",
+                        text: "Explica qué factores hacen a alguien un buen candidato para el blanqueamiento y la importancia de una evaluación profesional. Invita a un mini-quiz en historias: '¿Eres candidato ideal?'",
+                        visual: "Video corto de la Dra. explicando brevemente el proceso o animaciones simples."
+                    },
+                    {
+                        title: "Cuidados Post-Blanqueamiento para una Sonrisa Duradera",
+                        text: "Ofrece tips prácticos para mantener los resultados del blanqueamiento: alimentos a evitar, higiene y retoques. '¿Qué haces para mantener tu sonrisa blanca y brillante?'",
+                        visual: "Carrusel de fotos con consejos visuales. Fotos de alimentos que manchan/no manchan."
+                    }
+                ],
+                "implantes": [
+                    {
+                        title: "Recupera tu Sonrisa con Implantes Dentales",
+                        text: "Explica de forma sencilla qué son los implantes dentales y cómo pueden transformar la vida de una persona. Usa un lenguaje claro para desmitificar el procedimiento.",
+                        visual: "Animación 3D del implante en el hueso. Testimonios de pacientes con implantes."
+                    },
+                    {
+                        title: "Implantes: ¿La mejor solución a largo plazo?",
+                        text: "Compara los implantes con otras soluciones (puentes, dentaduras) destacando la durabilidad, función y estética natural. Pregunta: '¿Qué te detiene a considerar un implante?'",
+                        visual: "Gráfico comparativo sencillo. Foto de un implante real en maqueta."
+                    },
+                    {
+                        title: "El Proceso de Implantes en GL Dental: Paso a Paso",
+                        text: "Guía a tus seguidores a través del viaje del implante dental: desde la consulta inicial hasta la colocación final, destacando la tecnología que usan en GL Dental.",
+                        visual: "Carrusel de imágenes con cada paso (consulta, cirugía guiada, corona). Fotos del equipo y tecnología."
+                    }
+                ],
+                "ortodoncia": [
+                    {
+                        title: "Más Allá de la Estética: Beneficios de la Ortodoncia",
+                        text: "Enfócate no solo en la belleza, sino en cómo la ortodoncia mejora la salud bucal, la mordida y previene problemas a largo plazo. '¿Sabías que la ortodoncia es más que solo dientes rectos?'",
+                        visual: "Infografía de problemas dentales (maloclusión) y cómo la ortodoncia los corrige. Fotos de sonrisas sanas."
+                    },
+                    {
+                        title: "Ortodoncia Invisible: La Alternativa Discreta",
+                        text: "Destaca los beneficios de los alineadores transparentes: comodidad, estética y facilidad de higiene. Anima a los usuarios a preguntar sobre su caso específico.",
+                        visual: "Videos cortos mostrando a alguien poniéndose/quitándose los alineadores. Fotos de antes/después con alineadores."
+                    },
+                    {
+                        title: "Miths vs. Facts de la Ortodoncia",
+                        text: "¿Es dolorosa? ¿Cuánto tiempo dura? Desmiente mitos comunes y educa a tu audiencia sobre la realidad de la ortodoncia moderna.",
+                        visual: "Formato de Reel con 'Mito o Verdad' y respuestas rápidas."
+                    }
+                ],
+                "salud infantil": [
+                    {
+                        title: "La Primera Visita al Dentista: ¡Una Aventura!",
+                        text: "Consejos para padres sobre cómo preparar a sus hijos para su primera visita al dentista, haciendo la experiencia divertida y positiva. '¿A qué edad llevó a su hijo al dentista por primera vez?'",
+                        visual: "Fotos amigables de niños sonriendo en el dentista. Ilustraciones de personajes dentales."
+                    },
+                    {
+                        title: "Hábitos Saludables para Sonrisas Pequeñas",
+                        text: "Tips sobre el cepillado adecuado, uso de hilo dental y snacks que cuidan los dientes de los niños. Recetas saludables para dientes fuertes.",
+                        visual: "Video corto de un padre cepillando los dientes de su hijo de forma divertida. Carrusel de alimentos buenos/malos."
+                    },
+                    {
+                        title: "Importancia de los Selladores y Flúor en Niños",
+                        text: "Explica de manera sencilla por qué los selladores y el flúor son cruciales para prevenir caries en los niños. '¿Sabías que estos tratamientos protegen a tus hijos de las caries?'",
+                        visual: "Gráfico explicativo sobre cómo funcionan los selladores. Animación de dientes protegidos."
+                    }
+                ],
+                "general": [
+                    {
+                        title: "Tu Consulta Dental: Un Espacio de Confianza",
+                        text: "Muestra la calidez y profesionalismo de GL Dental. Destaca el ambiente amigable y la atención personalizada que ofrecen. '¿Qué es lo que más valoras de tu visita al dentista?'",
+                        visual: "Tour rápido por la clínica. Fotos del equipo sonriendo."
+                    },
+                    {
+                        title: "La Importancia de las Revisiones Periódicas",
+                        text: "Recuerda a tus seguidores la importancia de las visitas regulares al dentista para mantener una salud bucal óptima y prevenir problemas mayores. '¡No esperes a que duela!'",
+                        visual: "Gráfico de frecuencia de visitas. Imagen de un check-up dental."
+                    },
+                    {
+                        title: "¿Preguntas para tu Dentista?",
+                        text: "Invita a tus seguidores a dejar sus dudas sobre salud bucal en los comentarios o por DM. Ofrece responderlas en un próximo post o historia. '¡Tu pregunta podría ser la próxima en nuestra sección de #PregúntaleAlDentista!'" ,
+                        visual: "Foto de la Dra. preparada para responder preguntas. Caja de preguntas en historias."
+                    }
+                ]
+            };
+
+            const selectedIdeas = ideas[topic] || ideas["general"];
+
+            if (selectedIdeas.length === 0) {
+                resultsArea.innerHTML = '<div class="idea-card"><h3>No hay ideas específicas para este tema. Prueba con "general".</h3></div>';
+                return;
+            }
+
+            selectedIdeas.forEach(idea => {
+                const card = document.createElement('div');
+                card.classList.add('idea-card');
+                card.innerHTML = `
+                    <h3>${idea.title}</h3>
+                    <p>${idea.text}</p>
+                    <p class="visual-suggestion">Sugerencia Visual: ${idea.visual}</p>
+                `;
+                resultsArea.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
